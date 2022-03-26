@@ -293,9 +293,9 @@ int parse_pipe(char *str, char **strpiped)
  */
 void parse_space(char *str, char **parsed)
 {
-    int i;
+    int i = 0, found = 0;
 
-    for (i = 0; i < MAXLIST; i++)
+    while (!found && i < MAXLIST)
     {
         parsed[i] = strsep(&str, " ");
 
@@ -303,6 +303,7 @@ void parse_space(char *str, char **parsed)
             break;
         if (strlen(parsed[i]) == 0)
             i--;
+        i++;
     }
 }
 /**
