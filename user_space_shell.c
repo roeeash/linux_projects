@@ -300,9 +300,13 @@ void parse_space(char *str, char **parsed)
         parsed[i] = strsep(&str, " ");
 
         if (parsed[i] == NULL)
-            break;
-        if (strlen(parsed[i]) == 0)
+        {
+            found = 1;
+        }
+        if (!found && strlen(parsed[i]) == 0)
+        {
             i--;
+        }
         i++;
     }
 }
